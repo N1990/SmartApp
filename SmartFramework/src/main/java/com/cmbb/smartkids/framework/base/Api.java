@@ -17,5 +17,7 @@ public class Api {
 
     public static final String USER_INFO = "smart/personal/getPersonal"; //获取用户信息
 
+    public static final String SIGN_ARRIVE_REQUEST = "smart/user/sign";// 签到
+
 
 }

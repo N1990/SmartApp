@@ -1,1 +1,1 @@
-include ':app', ':SmartFramework', ':OneSDK'
+include ':app', ':SmartFramework', ':OneSDK', ':SmartRecyclerView'

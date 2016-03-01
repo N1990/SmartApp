@@ -93,5 +93,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("test", response.toString());
             }
         });*/
+
+       /* SignModel.getSignRequest("OTVhMmY2YmYtZGQ0Zi00YzM3LTk3YzAtNTgzZGZlODM1Y2Rm", new OkHttpClientManager.ResultCallback<SignModel>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(SignModel response) {
+                Log.i("test", response.toString());
+            }
+        });*/
     }
 }

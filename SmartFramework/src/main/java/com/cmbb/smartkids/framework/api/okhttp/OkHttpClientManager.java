@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.cmbb.smartkids.framework.base.Constants;
-import com.cmbb.smartkids.framework.base.RequestModel;
+import com.cmbb.smartkids.framework.api.RequestModel;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;

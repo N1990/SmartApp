@@ -9,6 +9,7 @@ android {
         targetSdkVersion 23
         versionCode 303
         versionName "3.0.3"
+        multiDexEnabled true
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
@@ -75,4 +76,5 @@ dependencies {
     compile files('libs/Sunflower.jar')
     compile project(':OneSDK')
     compile project(':SmartRecyclerView')
+    compile project(':SmartPhotoPicker')
 }

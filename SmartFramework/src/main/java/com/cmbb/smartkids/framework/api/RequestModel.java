@@ -1,4 +1,4 @@
-package com.cmbb.smartkids.framework.base;
+package com.cmbb.smartkids.framework.api;
 
 import java.util.Map;
 

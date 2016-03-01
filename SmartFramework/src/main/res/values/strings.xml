@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">萌宝派</string>
 
+    <!--LogString-->
     <string name="unknow_version">未知版本</string>
     <string name="os_version_code">OS版本号</string>
     <string name="os_version_name">OS版本名</string>
@@ -11,5 +12,9 @@
     <string name="model_info">设备信息</string>
     <string name="product_info">产品信息</string>
     <string name="manufacturer_info">制造商信息</string>
+
+
+    <!--contentString-->
+    <string name="quit_app" translatable="false">再按一次退出整个应用</string>
 
 </resources>

@@ -1,1 +1,1 @@
-include ':app', ':SmartFramework', ':OneSDK', ':SmartRecyclerView'
+include ':app', ':SmartFramework', ':OneSDK', ':SmartRecyclerView', ':SmartPhotoPicker', ':ServiceModule', ':TopicModule'

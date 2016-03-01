@@ -9,8 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/OneSDK" />
+            <option value="$PROJECT_DIR$/ServiceModule" />
             <option value="$PROJECT_DIR$/SmartFramework" />
+            <option value="$PROJECT_DIR$/SmartPhotoPicker" />
             <option value="$PROJECT_DIR$/SmartRecyclerView" />
+            <option value="$PROJECT_DIR$/TopicModule" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
@@ -18,8 +21,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/OneSDK" />
+            <option value="$PROJECT_DIR$/ServiceModule" />
             <option value="$PROJECT_DIR$/SmartFramework" />
+            <option value="$PROJECT_DIR$/SmartPhotoPicker" />
             <option value="$PROJECT_DIR$/SmartRecyclerView" />
+            <option value="$PROJECT_DIR$/TopicModule" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

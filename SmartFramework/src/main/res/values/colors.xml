@@ -16,9 +16,4 @@
     <!--暗灰色 -->
     <color name="dimgray">#696969</color>
     <!--字体颜色-->
-
-    <!--活动详情底部-->
-    <color name="service_bottom_left">#29a6f5</color>
-    <color name="service_bottom_right">#7dcf44</color>
-    <!--活动详情底部-->
 </resources>

@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.cmbb.smartkids.framework.R;
 import com.cmbb.smartkids.framework.api.okhttp.OkHttpClientManager;
 import com.cmbb.smartkids.framework.utils.ExitBroadcast;
 import com.cmbb.smartkids.framework.utils.log.Log;
+import com.cmbb.smartkids.recyclerview.SmartRecyclerView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
@@ -23,9 +25,11 @@ public abstract class SmartActivity extends AppCompatActivity implements View.On
     private final String TAG = SmartActivity.class.getSimpleName();
     private ActionBar actionbar;
     public static PushAgent mPushAgent;
-
     private BroadcastReceiver existReceiver;// EXIT
 
+    protected SmartRecyclerView mSmartRecyclerView;
+
+    protected RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

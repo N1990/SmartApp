@@ -8,8 +8,8 @@ android {
         applicationId "com.cmbb.smartkids"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 303
+        versionName "3.0.3"
     }
     buildTypes {
         release {
@@ -17,10 +17,63 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "c360"]
+        }
+        uc {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "uc"]
+        }
+        Tencent {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Tencent"]
+        }
+        Umeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Umeng"]
+        }
+        Meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Meizu"]
+        }
+        XiaoMi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "XiaoMi"]
+        }
+        HuaWei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "HuaWei"]
+        }
+        Oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Oppo"]
+        }
+        Lenovo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Lenovo"]
+        }
+        SmartKids {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "SmartKids"]
+        }
+        SmartKids3 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "SmartKids3"]
+        }
+    }
+
+    signingConfigs {
+        debug {
+//            storeFile file("/Users/javon/Documents/mengbao/smartkids")
+            storeFile file("/Users/niesen918/AndroidStudioProjects/key/smartkids")
+            storePassword "ns101288"
+            keyAlias "smartkids"
+            keyPassword "ns101288"
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
+    compile project(':SmartFramework')
 }

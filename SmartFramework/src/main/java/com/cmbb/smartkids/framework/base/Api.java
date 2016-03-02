@@ -30,6 +30,10 @@ public class Api {
     public static final String UPDATA_IMG_FOR_USER = "smart/personal/updateBackgroundImg"; //更换个人的图片
     public static final String HOME_MAIN_HOT_SERVICE = "smart/services/getPage";  //服务列表
 
+    public static final String FEEDBACK_SUGGEST_REQUEST = "smart/feedback/opinion";//意见反馈
+    public static final String MODIFY_USER_INFO = "smart/personal/updatePersonal"; // 修改用户信息
+    public static final String CHANGE_USER_ACCOUNT = "smart/logout"; // 切换账号
+
 
 
 }

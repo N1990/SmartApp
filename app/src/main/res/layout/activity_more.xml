@@ -18,60 +18,60 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@+id/toolbar"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:drawableRight="@mipmap/btn_right_anchor_bg"
-            android:elevation="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textAppearance="@style/TextAppearance.Smart.Body1"
+            android:background="@android:color/white"
+            android:drawableRight="@mipmap/btn_right_anchor_bg"
+            android:layout_marginTop="10dp"
             android:text="意见反馈"
-            android:textAppearance="@style/TextAppearance.Smart.Small" />
+            android:elevation="3dp"/>
 
         <TextView
             android:id="@+id/tv_growth_values"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@+id/tv_suggest_feek"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/white"
-            android:drawableRight="@mipmap/btn_right_anchor_bg"
-            android:elevation="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textAppearance="@style/TextAppearance.Smart.Title"
+            android:background="@android:color/white"
+            android:drawableRight="@mipmap/btn_right_anchor_bg"
+            android:layout_marginTop="20dp"
             android:text="成长值说明"
-            android:textAppearance="@style/TextAppearance.Smart.Small" />
+            android:elevation="3dp"/>
 
         <TextView
             android:id="@+id/tv_about"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@+id/tv_growth_values"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/white"
-            android:drawableRight="@mipmap/btn_right_anchor_bg"
-            android:elevation="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textAppearance="@style/TextAppearance.Smart.Body1"
+            android:background="@android:color/white"
+            android:drawableRight="@mipmap/btn_right_anchor_bg"
+            android:layout_marginTop="10dp"
             android:text="关于萌宝派"
-            android:textAppearance="@style/TextAppearance.Smart.Small" />
+            android:elevation="3dp"/>
 
         <TextView
             android:id="@+id/tv_clear_cache"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@+id/tv_about"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/white"
-            android:drawableRight="@mipmap/btn_right_anchor_bg"
-            android:elevation="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textAppearance="@style/TextAppearance.Smart.Body1"
+            android:background="@android:color/white"
+            android:drawableRight="@mipmap/btn_right_anchor_bg"
+            android:layout_marginTop="20dp"
             android:text="清除缓存"
-            android:textAppearance="@style/TextAppearance.Smart.Small" />
+            android:elevation="3dp"/>
 
 
         <LinearLayout
@@ -80,10 +80,10 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:background="@drawable/shape_white_background_no_corner"
+            android:paddingTop="@dimen/half_global_padding"
 
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/half_global_padding">
+            android:background="@drawable/shape_white_background_no_corner"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_home"
@@ -138,4 +138,4 @@
         </LinearLayout>
 
     </RelativeLayout>
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>

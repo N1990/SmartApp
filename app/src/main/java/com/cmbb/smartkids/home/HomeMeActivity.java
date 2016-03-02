@@ -35,6 +35,7 @@ import com.cmbb.smartkids.framework.utils.TDevice;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.cmbb.smartkids.photopicker.PhotoPickerActivity;
 import com.cmbb.smartkids.photopicker.utils.PhotoPickerIntent;
+import com.cmbb.smartkids.user.MySetActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.okhttp.Request;
 
@@ -142,6 +143,7 @@ public class HomeMeActivity extends BaseActivity implements View.OnClickListener
         tvTopic.setOnClickListener(this);
         tvMe.setOnClickListener(this);
         tvMore.setOnClickListener(this);
+        findViewById(R.id.iv_main_toolbar_left).setOnClickListener(this);
     }
 
 
@@ -291,9 +293,9 @@ public class HomeMeActivity extends BaseActivity implements View.OnClickListener
                     }
                 });
             }
-        } /*else if (resultCode == -1 && requestCode == HomeActivity.MY_SET_MODIFY) {
+        } else if (resultCode == -1 && requestCode == MY_SET_MODIFY) {
             initData();
-        } */ else {
+        }  else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
@@ -320,8 +322,8 @@ public class HomeMeActivity extends BaseActivity implements View.OnClickListener
                 break;
             // 设置
             case R.id.iv_main_toolbar_left:
-                /*Intent intentSetting = new Intent(getActivity(), MySetActivity.class);
-                startActivityForResult(intentSetting, MY_SET_MODIFY);*/
+                Intent intentSetting = new Intent(this, MySetActivity.class);
+                startActivityForResult(intentSetting, MY_SET_MODIFY);
                 break;
             // 信息
             case R.id.iv_main_toolbar_right:

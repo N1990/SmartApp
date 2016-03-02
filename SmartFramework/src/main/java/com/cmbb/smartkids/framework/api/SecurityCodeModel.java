@@ -137,6 +137,6 @@ public class SecurityCodeModel implements Parcelable {
     public static void sendSuggestFeekRequest(String contents, OkHttpClientManager.ResultCallback<SecurityCodeModel> callback) {
         HashMap<String, String> params = new HashMap<>();
         params.put("contents", contents);
-        OkHttpClientManager.postAsyn(Api.HOME_GET_AD, params, callback);
+        OkHttpClientManager.postAsyn(Api.FEEDBACK_SUGGEST_REQUEST, params, callback);
     }
 }

@@ -17,5 +17,6 @@
     <string name="verify_button">下一步</string>
     <string name="activity_register">注册</string>
     <string name="home_more">更多</string>
+    <string name="person_information">个人信息</string>
 
 </resources>

@@ -201,6 +201,14 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- *************************    分享相关的注册 END **************************** -->
         <!-- 以上接入第三方必备 -->
+        <!-- MengPhotoPicker -->
+        <activity
+            android:name=".photopicker.PhotoPickerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name=".photopicker.PhotoViewActivity"
+            android:theme="@style/AppThemeFullScreen" />
+        <!-- MengPhotoPicker -->
 
         <activity
             android:name=".SplashActivity"
@@ -241,6 +249,7 @@
         <activity android:name=".more.CompanyRule" />
         <activity android:name=".more.AboutActivity" />
         <activity android:name=".more.GrownValusActivity" />
+        <activity android:name=".user.MySetActivity" />
 
         <provider
             android:name=".framework.db.UserProvider"

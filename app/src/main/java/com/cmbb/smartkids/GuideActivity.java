@@ -62,9 +62,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(GuideActivity.this, LoginActivity.class));
                 break;
             case R.id.tv_guid_register:
-                Intent intent = new Intent(GuideActivity.this, VerifyActivity.class);
-                intent.putExtra("tag", "register");
-                startActivity(intent);
+                VerifyActivity.newIntent(GuideActivity.this, "register");
                 break;
         }
     }

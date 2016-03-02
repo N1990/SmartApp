@@ -239,6 +239,8 @@
 
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.VerifyActivity" />
+        <activity android:name=".login.ForgetPwdActivity" />
+        <activity android:name=".login.RegisterActivity" />
 
         <provider
             android:name=".framework.db.UserProvider"

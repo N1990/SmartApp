@@ -22,7 +22,10 @@ import android.view.inputmethod.InputMethodManager;
 import com.cmbb.smartkids.framework.base.BaseApplication;
 import com.cmbb.smartkids.framework.base.Constants;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -367,6 +370,26 @@ public class TDevice {
         Pattern pattern = Pattern.compile(match);
         Matcher matcher = pattern.matcher(id.trim());
         return matcher.matches();
+    }
+
+    /***
+     * 读取本地文件中JSON字符串
+     *
+     * @param fileName
+     * @return
+     */
+    public static String getJson(Context context, String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            BufferedReader bf = new BufferedReader(new InputStreamReader(context.getAssets().open(fileName)));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
     }
 
 }

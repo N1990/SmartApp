@@ -108,8 +108,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 handleLogin(phone, pwd);
                 break;
             case R.id.tv_forget:
-
-
+                ForgetPwdActivity.newIntent(this, etLoginPhone.getText().toString().trim());
                 break;
             case R.id.iv_login_wx:
                 platform = 2;

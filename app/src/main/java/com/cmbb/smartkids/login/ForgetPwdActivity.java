@@ -1,7 +1,11 @@
 package com.cmbb.smartkids.login;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -9,10 +13,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cmbb.smartkids.R;
+import com.cmbb.smartkids.framework.api.UserAssistInfoModel;
+import com.cmbb.smartkids.framework.api.UserAssistModel;
+import com.cmbb.smartkids.framework.api.okhttp.OkHttpClientManager;
 import com.cmbb.smartkids.framework.base.BaseActivity;
+import com.cmbb.smartkids.framework.base.BaseApplication;
+import com.cmbb.smartkids.framework.base.Constants;
+import com.cmbb.smartkids.framework.db.DBContent;
+import com.cmbb.smartkids.framework.utils.SPCache;
 import com.cmbb.smartkids.framework.utils.TDevice;
-
-import java.util.HashMap;
+import com.cmbb.smartkids.home.HomeActivity;
+import com.squareup.okhttp.Request;
 
 public class ForgetPwdActivity extends BaseActivity implements View.OnClickListener {
 
@@ -50,6 +61,7 @@ public class ForgetPwdActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         String pwd = etPwd.getText().toString();
         String pwdConfirm = etPwdComfirm.getText().toString();
+
         if (TextUtils.isEmpty(pwd)) {
             showShortToast("请输入您的密码");
             return;
@@ -70,27 +82,19 @@ public class ForgetPwdActivity extends BaseActivity implements View.OnClickListe
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("正在请求...");
         progressDialog.show();
-        HashMap<String, String> body = new HashMap<>();
-        body.put("loginAccount", getIntent().getStringExtra("phone"));
-        body.put("loginPassword", pwd);
-        body.put("device", 2 + "");
-        body.put("deviceVersion", android.os.Build.VERSION.RELEASE);
-        body.put("model", android.os.Build.MODEL);
-        body.put("imei", TDevice.getDeviceId(this));
-        body.put("applicationVersion", TDevice.getVersionName());
 
-
-//        UserAssistModel.handleLoginRequest();
-
-/*
-        NetRequest.postRequest(Constants.ServiceInfo.FORGEST_PWD_REQUEST, "", body, UserAssistModel.class, new NetRequest.NetHandler(this, new NetRequest.NetResponseListener() {
+        UserAssistModel.handleForgetRequest(getIntent().getStringExtra("phone"), pwd, new OkHttpClientManager.ResultCallback<UserAssistModel>() {
             @Override
-            public void onSuccessListener(Object object, String msg) {
-                UserAssistModel obj = (UserAssistModel) object;
-                hideWaitDialog();
-                if (null != obj && obj.getData() != null) {
-                    Log.i(TAG, "userInfo = " + obj.toString());
-                    UserRootModel user = obj.getData();
+            public void onError(Request request, Exception e) {
+                progressDialog.dismiss();
+                showShortToast(e.toString());
+            }
+
+            @Override
+            public void onResponse(UserAssistModel response) {
+                if (response != null) {
+                    showShortToast(response.getMsg());
+                    UserAssistInfoModel user = response.getData();
                     SPCache.putString(Constants.TOKEN, user.getToken());
                     SPCache.putString(Constants.USER_ID, user.getUserId() + "");
                     // 更改Application里面的值
@@ -118,17 +122,16 @@ public class ForgetPwdActivity extends BaseActivity implements View.OnClickListe
                     startActivity(new Intent(ForgetPwdActivity.this, HomeActivity.class));
                     finish();
                 } else {
-                    Log.i(TAG, "message = " + msg);
-                    showShortToast(msg);
+                    showShortToast(response.getMsg());
                 }
             }
+        });
+    }
 
-            @Override
-            public void onErrorListener(String message) {
-                hideWaitDialog();
-                showShortToast(message);
-            }
-        }));
-*/
+
+    public static void newIntent(Context context, String phone) {
+        Intent intent = new Intent(context, ForgetPwdActivity.class);
+        intent.putExtra("phone", phone);
+        context.startActivity(intent);
     }
 }

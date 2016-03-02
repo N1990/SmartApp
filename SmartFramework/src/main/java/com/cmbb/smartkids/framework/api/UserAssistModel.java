@@ -115,4 +115,51 @@ public class UserAssistModel implements Parcelable {
         params.put("thirdType", platform + "");
         OkHttpClientManager.postAsyn(Api.LOGIN_REQUEST, params, callback);
     }
+
+    /**
+     * 忘记密码
+     *
+     * @param loginAccount
+     * @param loginPassword
+     * @param callback
+     */
+    public static void handleForgetRequest(String loginAccount, String loginPassword, OkHttpClientManager.ResultCallback<UserAssistModel> callback) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("loginAccount", loginAccount);
+        params.put("loginPassword", loginPassword);
+        params.put("device", 2 + "");
+        params.put("deviceVersion", android.os.Build.VERSION.RELEASE);
+        params.put("model", android.os.Build.MODEL);
+        params.put("imei", TDevice.getDeviceId(BaseApplication.getContext()));
+        params.put("applicationVersion", TDevice.getVersionName());
+        OkHttpClientManager.postAsyn(Api.FORGEST_PWD, params, callback);
+    }
+
+    /**
+     * 注册请求
+     *
+     * @param userNike
+     * @param loginAccount
+     * @param loginPassword
+     * @param province
+     * @param cityId
+     * @param district
+     * @param callback
+     */
+    public static void handleRegisterRequest(String userNike, String loginAccount, String loginPassword, String province, String cityId, String district, OkHttpClientManager.ResultCallback<UserAssistModel> callback) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("loginAccount", loginAccount);
+        params.put("loginPassword", loginPassword);
+        params.put("userNike", userNike);
+        params.put("province", province);
+        params.put("cityId", cityId);
+        params.put("district", district);
+        params.put("device", 2 + "");
+        params.put("deviceVersion", android.os.Build.VERSION.RELEASE);
+        params.put("model", android.os.Build.MODEL);
+        params.put("imei", TDevice.getDeviceId(BaseApplication.getContext()));
+        params.put("applicationVersion", TDevice.getVersionName());
+        params.put("thirdType", 0 + "");
+        OkHttpClientManager.postAsyn(Api.REGISTER_REQUEST, params, callback);
+    }
 }

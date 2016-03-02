@@ -20,10 +20,12 @@ public class Api {
     public static final String SIGN_ARRIVE_REQUEST = "smart/user/sign";// 签到
 
     public static final String LOGIN_REQUEST = "smart/login"; //登录
+    public static final String REGISTER_REQUEST = "smart/register"; //登录
     public static final String FORGEST_PWD = "smart/forgetPWD"; //忘记密码
 
-
-
+    public static final String REGISTER_VERIFY_CODE = "smart/getRegisterSecurityCode"; // 获取注册验证码
+    public static final String VERIFY_CODE = "smart/getSecurityCode"; //获取验证码，除注册外
+    public static final String REGISTER_NEXT_REQUEST = "smart/registerNext"; //注册下一步
 
 
 

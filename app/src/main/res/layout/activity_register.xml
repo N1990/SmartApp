@@ -1,4 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -12,10 +15,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/global_padding">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,11 +31,89 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:background="@mipmap/btn_user_bg"
+                    android:scaleType="fitCenter" />
+
+                <EditText
+                    android:id="@+id/et_register_nickname"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:hint="昵称"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.Smart.Body1" />
+
+                <ImageView
+                    android:id="@+id/iv_register_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dip"
+                    android:background="@mipmap/btn_edit_delete"
+                    android:scaleType="fitCenter"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/shape_white_background_corner"
+                android:orientation="horizontal"
+                android:padding="@dimen/global_padding">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@mipmap/btn_city_normal"
+                    android:scaleType="fitCenter" />
+
+                <EditText
+                    android:id="@+id/et_register_city"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:enabled="false"
+                    android:hint="城市"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.Smart.Body1" />
+
+                <TextView
+                    android:id="@+id/tv_register_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dip"
+                    android:text="请选择"
+                    android:textColor="@color/primaryColor" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/shape_white_background_corner"
+                android:orientation="horizontal"
+                android:padding="@dimen/global_padding">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:background="@mipmap/btn_password_bg"
                     android:scaleType="fitCenter" />
 
                 <EditText
-                    android:id="@+id/et_forget_pwd"
+                    android:id="@+id/et_register_pwd"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -46,7 +126,7 @@
                     android:textAppearance="@style/TextAppearance.Smart.Body1" />
 
                 <ImageView
-                    android:id="@+id/iv_forget_pwd_clear"
+                    android:id="@+id/iv_register_pwd_clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -73,7 +153,7 @@
                     android:scaleType="fitCenter" />
 
                 <EditText
-                    android:id="@+id/et_forget_pwd_comfirm"
+                    android:id="@+id/et_registser_pwd_comfirm"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -86,7 +166,7 @@
                     android:textAppearance="@style/TextAppearance.Smart.Body1" />
 
                 <ImageView
-                    android:id="@+id/iv_login_pwd_comfirm_clear"
+                    android:id="@+id/iv_register_pwd_comfirm_clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -98,19 +178,19 @@
 
 
             <TextView
-                android:id="@+id/tv_forget_pwd_finish"
+                android:id="@+id/tv_register_finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dip"
                 android:background="@drawable/selector_primarycolor_to_white_button_corner"
                 android:gravity="center"
                 android:padding="@dimen/global_padding"
-                android:text="@string/forget_button"
+                android:text="@string/verify_button"
                 android:textAppearance="@style/TextAppearance.Smart.Button"
                 android:textColor="@color/selector_white_to_primarycolor_text" />
+
+
         </LinearLayout>
 
-
     </LinearLayout>
-
 </android.support.design.widget.CoordinatorLayout>

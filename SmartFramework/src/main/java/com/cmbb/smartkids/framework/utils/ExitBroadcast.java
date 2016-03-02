@@ -9,7 +9,6 @@ import com.cmbb.smartkids.framework.utils.log.Log;
 
 
 public class ExitBroadcast extends BroadcastReceiver {
-    //退出整个apk
     private static final String TAG = ExitBroadcast.class.getSimpleName();
     Activity activity = null;
 

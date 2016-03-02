@@ -2,26 +2,26 @@
     <string name="app_name" translatable="false">萌宝派</string>
 
     <!--LogString-->
-    <string name="unknow_version">未知版本</string>
-    <string name="os_version_code">OS版本号</string>
-    <string name="os_version_name">OS版本名</string>
-    <string name="os_display_name">OS显示名</string>
-    <string name="app_version_code">应用版本号</string>
-    <string name="app_version_name">应用版本名</string>
-    <string name="brand_info">品牌信息</string>
-    <string name="model_info">设备信息</string>
-    <string name="product_info">产品信息</string>
-    <string name="manufacturer_info">制造商信息</string>
+    <string name="unknow_version" translatable="false">未知版本</string>
+    <string name="os_version_code" translatable="false">OS版本号</string>
+    <string name="os_version_name" translatable="false">OS版本名</string>
+    <string name="os_display_name" translatable="false">OS显示名</string>
+    <string name="app_version_code" translatable="false">应用版本号</string>
+    <string name="app_version_name" translatable="false">应用版本名</string>
+    <string name="brand_info" translatable="false">品牌信息</string>
+    <string name="model_info" translatable="false">设备信息</string>
+    <string name="product_info" translatable="false">产品信息</string>
+    <string name="manufacturer_info" translatable="false">制造商信息</string>
 
 
     <!--contentString-->
     <string name="quit_app" translatable="false">再按一次退出整个应用</string>
-    <string name="login">登录</string>
-    <string name="register">注册</string>
-    <string name="home_page">首页</string>
-    <string name="home_service">服务</string>
-    <string name="home_topic">话题</string>
-    <string name="home_me">我的</string>
-    <string name="home_more">更多</string>
+    <string name="login" translatable="false">登录</string>
+    <string name="register" translatable="false">注册</string>
+    <string name="home_page" translatable="false">首页</string>
+    <string name="home_service" translatable="false">服务</string>
+    <string name="home_topic" translatable="false">话题</string>
+    <string name="home_me" translatable="false">我的</string>
+    <string name="home_more" translatable="false">更多</string>
 
 </resources>

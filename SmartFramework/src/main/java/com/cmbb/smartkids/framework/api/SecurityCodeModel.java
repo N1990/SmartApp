@@ -129,4 +129,14 @@ public class SecurityCodeModel implements Parcelable {
     }
 
 
+   /*   提交意见反馈接口
+     *
+     * @param contents    contents
+     * @param callback ResultCallback
+     */
+    public static void sendSuggestFeekRequest(String contents, OkHttpClientManager.ResultCallback<SecurityCodeModel> callback) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("contents", contents);
+        OkHttpClientManager.postAsyn(Api.HOME_GET_AD, params, callback);
+    }
 }

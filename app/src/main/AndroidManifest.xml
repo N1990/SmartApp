@@ -242,6 +242,11 @@
         <activity android:name=".login.ForgetPwdActivity" />
         <activity android:name=".login.RegisterActivity" />
 
+        <activity android:name=".more.SuggestActivity" />
+        <activity android:name=".more.CompanyRule" />
+        <activity android:name=".more.AboutActivity" />
+        <activity android:name=".more.GrownValusActivity" />
+
         <provider
             android:name=".framework.db.UserProvider"
             android:authorities="com.cmbb.smartkids.useraccount"

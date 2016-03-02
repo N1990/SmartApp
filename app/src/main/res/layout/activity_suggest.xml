@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.cmbb.smartkids.activity.more.SuggestActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <include
+        android:id="@+id/suggest_progress"
+        layout="@layout/custome_progressbar"
+        />
+
+    <RelativeLayout
+        android:id="@+id/suggest_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:padding="@dimen/half_global_padding">
+
+        <EditText
+            android:id="@+id/et_cotent_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_white_bg"
+            android:gravity="start"
+            android:hint="请输入1-500个字"
+            android:minHeight="150dip"
+            android:textAppearance="@style/TextAppearance.Smart.Subhead.Inverse"
+            android:padding="@dimen/half_global_padding"
+            android:textColor="@android:color/black"
+            android:elevation="3dip"/>
+
+        <TextView
+            android:id="@+id/tv_limit_suggest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/et_cotent_suggest"
+            android:layout_margin="2dip"
+            android:textAppearance="@style/TextAppearance.Smart.Body1"
+            android:text="0/500"
+            android:textColor="@android:color/darker_gray" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

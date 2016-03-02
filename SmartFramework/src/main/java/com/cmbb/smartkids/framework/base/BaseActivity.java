@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.cmbb.smartkids.framework.R;
@@ -22,7 +24,7 @@ import com.umeng.message.PushAgent;
  * 创建人：N.Sun
  * 创建时间：16/3/1 下午3:44
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements OnClickListener{
     private final String TAG = BaseActivity.class.getSimpleName();
 
     protected ActionBar toolbar;
@@ -62,7 +64,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-
     protected abstract void init(Bundle savedInstanceState);
 
     protected abstract int getLayoutId();
@@ -85,6 +86,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         Toast.makeText(this, tip, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 
     /**
      * 取消请求

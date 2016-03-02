@@ -12,6 +12,7 @@ import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.support.annotation.RawRes;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -19,11 +20,16 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.cmbb.smartkids.framework.R;
 import com.cmbb.smartkids.framework.base.BaseApplication;
 import com.cmbb.smartkids.framework.base.Constants;
+import com.cmbb.smartkids.framework.utils.log.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.UUID;
@@ -391,5 +397,39 @@ public class TDevice {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     * Raw 获取资源文件
+     *
+     * @param context
+     * @param res
+     * @return
+     */
+    public static String getContentFromRaw(Context context, @RawRes int res) {
+        InputStream in = null;
+        String temp = "";
+        try {
+            in = context.getResources().openRawResource(R.raw.popman_rule);
+            byte[] buff = new byte[1024];// 缓存
+            int rd = 0;
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            while ((rd = in.read(buff)) != -1) {
+                baos.write(buff, 0, rd);
+                temp = new String(baos.toByteArray(), "UTF-8");
+            }
+            baos.close();
+        } catch (Exception e) {
+            Log.e(e);
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return temp;
+        }
+    }
+
+
 
 }

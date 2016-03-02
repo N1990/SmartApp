@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cmbb.smartkids.R;
+import com.cmbb.smartkids.framework.base.BaseActivity;
 import com.cmbb.smartkids.framework.base.SmartActivity;
+import com.cmbb.smartkids.more.AboutActivity;
+import com.cmbb.smartkids.more.GrownValusActivity;
+import com.cmbb.smartkids.more.SuggestActivity;
 
 /**
  * 项目名称：SmartApp
@@ -15,7 +19,7 @@ import com.cmbb.smartkids.framework.base.SmartActivity;
  * 创建人：N.Sun
  * 创建时间：16/3/1 下午4:55
  */
-public class HomeMoreActivity extends SmartActivity implements View.OnClickListener {
+public class HomeMoreActivity extends BaseActivity implements View.OnClickListener {
 
 
     private TextView tvHome;
@@ -27,6 +31,7 @@ public class HomeMoreActivity extends SmartActivity implements View.OnClickListe
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        ((TextView)findViewById(R.id.tv_title)).setText(R.string.home_more);
         initBottom();
     }
 
@@ -42,25 +47,15 @@ public class HomeMoreActivity extends SmartActivity implements View.OnClickListe
         tvTopic.setOnClickListener(this);
         tvMe.setOnClickListener(this);
         tvMore.setOnClickListener(this);
-    }
-    @Override
-    protected boolean initAdapter() {
-        return false;
+        findViewById(R.id.tv_suggest_feek).setOnClickListener(this);
+        findViewById(R.id.tv_growth_values).setOnClickListener(this);
+        findViewById(R.id.tv_about).setOnClickListener(this);
+        findViewById(R.id.tv_clear_cache).setOnClickListener(this);
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_more;
-    }
-
-    @Override
-    public void onLoadMore() {
-
-    }
-
-    @Override
-    public void onRefresh() {
-
     }
 
     public static void newIntent(Context context) {
@@ -85,6 +80,18 @@ public class HomeMoreActivity extends SmartActivity implements View.OnClickListe
                 break;
             case R.id.tv_more:
                 HomeMoreActivity.newIntent(this);
+                break;
+            case R.id.tv_suggest_feek:
+                SuggestActivity.newInstance(this);
+                break;
+            case R.id.tv_growth_values:
+                GrownValusActivity.newInstance(this);
+                break;
+            case R.id.tv_about:
+                AboutActivity.newInstance(this);
+                break;
+            case R.id.tv_clear_cache:
+
                 break;
         }
     }

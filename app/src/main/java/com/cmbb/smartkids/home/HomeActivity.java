@@ -61,7 +61,7 @@ public class HomeActivity extends SmartActivity implements View.OnClickListener 
     private void initView() {
         toolbar.setDisplayHomeAsUpEnabled(false);
         mRollViewPager = (RollPagerView) findViewById(R.id.roll_view_pager);
-        mRollViewPager.setPlayDelay(1000);
+        mRollViewPager.setPlayDelay(2000);
         mRollViewPager.setAnimationDurtion(500);
         bannerLoopAdapter = new BannerLoopAdapter(mRollViewPager, adData);
         mRollViewPager.setAdapter(bannerLoopAdapter);

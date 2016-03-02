@@ -11,7 +11,6 @@ import com.cmbb.smartkids.framework.base.Constants;
 import com.cmbb.smartkids.framework.utils.SPCache;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.cmbb.smartkids.home.HomeActivity;
-import com.cmbb.smartkids.login.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
@@ -35,8 +34,7 @@ public class SplashActivity extends AppCompatActivity {
                 //判断Token
                 String token = SPCache.getString(Constants.TOKEN, "");
                 if (TextUtils.isEmpty(token)) {
-//                    GuideActivity.newIntent(SplashActivity.this);
-                    LoginActivity.newIntent(SplashActivity.this);
+                    GuideActivity.newIntent(SplashActivity.this);
                 } else {
                     HomeActivity.newIntent(SplashActivity.this);
                 }

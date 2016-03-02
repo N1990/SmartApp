@@ -20,6 +20,8 @@ public class Api {
     public static final String SIGN_ARRIVE_REQUEST = "smart/user/sign";// 签到
 
     public static final String LOGIN_REQUEST = "smart/login"; //登录
+    public static final String FORGEST_PWD = "smart/forgetPWD"; //忘记密码
+
 
 
 

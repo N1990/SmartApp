@@ -108,6 +108,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 handleLogin(phone, pwd);
                 break;
             case R.id.tv_forget:
+
+
                 break;
             case R.id.iv_login_wx:
                 platform = 2;
@@ -132,7 +134,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        progressDialog.dismiss();
     }
 
     private void handleLogin(String phone, String pwd) {
@@ -150,7 +151,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 return;
             }
         }
-        progressDialog = ProgressDialog.show(this, "提示", "正在登陆中");
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("正在登陆中...");
+        progressDialog.show();
 
         UserAssistModel.handleLoginRequest(platform, phone, pwd, uid, userName, new OkHttpClientManager.ResultCallback<UserAssistModel>() {
             @Override

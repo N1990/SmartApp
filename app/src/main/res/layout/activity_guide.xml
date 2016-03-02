@@ -3,19 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_guid"
+    <com.cmbb.smartkids.framework.widget.rollingviewpager.RollPagerView
+        android:id="@+id/roll_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:persistentDrawingCache="animation" />
-
-    <com.cmbb.smartkids.photopicker.widget.indication.CirclePageIndicator
-        android:id="@+id/cpi_guid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="5dip"
-        app:centered__="true" />
+        app:rollviewpager_play_delay="3000"/>
 
     <LinearLayout
         android:id="@+id/ll_bottom"

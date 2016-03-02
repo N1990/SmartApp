@@ -1,11 +1,11 @@
 package com.cmbb.smartkids;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.cmbb.smartkids.adapter.GuideLoopAdapter;
 import com.cmbb.smartkids.framework.base.Constants;
+import com.cmbb.smartkids.framework.utils.ExitBroadcast;
+import com.cmbb.smartkids.framework.widget.rollingviewpager.RollPagerView;
 import com.cmbb.smartkids.login.LoginActivity;
 import com.cmbb.smartkids.login.VerifyActivity;
-import com.cmbb.smartkids.photopicker.widget.indication.CirclePageIndicator;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.Timer;
@@ -27,27 +29,28 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     private final String TAG = GuideActivity.class.getSimpleName();
     private Boolean isQuit = false;// 退出应用标识符
     private Timer timer = new Timer();// 程序退出定时器
-    private ViewPager vp;
-    private CirclePageIndicator cpiGuid;
-    private boolean skipFlag;
     private LinearLayout ll_bottom;
 
+    private RollPagerView mRollViewPager;
+    private GuideLoopAdapter guideLoopAdapter;
+
+    private BroadcastReceiver existReceiver;// EXIT
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
         initView();
     }
 
     private void initView() {
+        initExit();
         ll_bottom = (LinearLayout) findViewById(R.id.ll_bottom);
-        vp = (ViewPager) findViewById(R.id.vp_guid);
-        cpiGuid = (CirclePageIndicator) findViewById(R.id.cpi_guid);
-        SimpleAdapter adapter = new SimpleAdapter();
-        vp.setAdapter(adapter);
-        cpiGuid.setViewPager(vp);
-        cpiGuid.setSnap(true);
+        mRollViewPager = (RollPagerView) findViewById(R.id.roll_view_pager);
+        mRollViewPager.setPlayDelay(2000);
+        mRollViewPager.setAnimationDurtion(500);
+        guideLoopAdapter = new GuideLoopAdapter(mRollViewPager);
+        mRollViewPager.setAdapter(guideLoopAdapter);
         findViewById(R.id.tv_guid_login).setOnClickListener(this);
         findViewById(R.id.tv_guid_register).setOnClickListener(this);
     }
@@ -131,6 +134,22 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     public static void newIntent(Context context) {
         Intent intent = new Intent(context, GuideActivity.class);
         context.startActivity(intent);
+    }
+
+
+    /**
+     * 程序退出
+     */
+    private void initExit() {
+        existReceiver = new ExitBroadcast(this);
+        IntentFilter filter = new IntentFilter(Constants.INTENT_ACTION_EXIT_APP);
+        registerReceiver(existReceiver, filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(existReceiver);
     }
 
 }

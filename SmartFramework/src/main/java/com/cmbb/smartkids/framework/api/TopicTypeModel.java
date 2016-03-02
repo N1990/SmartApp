@@ -41,6 +41,15 @@ public class TopicTypeModel implements Parcelable {
     public static class DataEntity implements Parcelable {
         private String name;
         private String value;
+        private int position;
+
+        public int getPosition() {
+            return position;
+        }
+
+        public void setPosition(int position) {
+            this.position = position;
+        }
 
         public void setName(String name) {
             this.name = name;
@@ -76,6 +85,7 @@ public class TopicTypeModel implements Parcelable {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(this.name);
             dest.writeString(this.value);
+            dest.writeInt(this.position);
         }
 
         public DataEntity() {
@@ -84,6 +94,7 @@ public class TopicTypeModel implements Parcelable {
         protected DataEntity(Parcel in) {
             this.name = in.readString();
             this.value = in.readString();
+            this.position = in.readInt();
         }
 
         public static final Creator<DataEntity> CREATOR = new Creator<DataEntity>() {

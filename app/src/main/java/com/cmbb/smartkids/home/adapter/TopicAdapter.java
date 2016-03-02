@@ -3,7 +3,7 @@ package com.cmbb.smartkids.home.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.cmbb.smartkids.framework.api.ServiceListModel;
+import com.cmbb.smartkids.framework.api.TopicListModel;
 import com.cmbb.smartkids.home.holder.TopicItemHolder;
 import com.cmbb.smartkids.recyclerview.adapter.BaseViewHolder;
 import com.cmbb.smartkids.recyclerview.adapter.RecyclerArrayAdapter;
@@ -15,7 +15,7 @@ import com.cmbb.smartkids.recyclerview.adapter.RecyclerArrayAdapter;
  * 创建人：javon
  * 创建时间：2015/8/24 13:31
  */
-public class TopicAdapter extends RecyclerArrayAdapter<ServiceListModel.DataEntity.RowsEntity> {
+public class TopicAdapter extends RecyclerArrayAdapter<TopicListModel.DataEntity.RowsEntity> {
 
     public TopicAdapter(Context context) {
         super(context);

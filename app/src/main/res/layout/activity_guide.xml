@@ -40,7 +40,7 @@
             android:padding="8dip"
             android:text="@string/login"
             android:textAppearance="@style/TextAppearance.Smart.Button"
-            android:textColor="@drawable/selector_white_to_primarycolor_text" />
+            android:textColor="@color/selector_white_to_primarycolor_text" />
 
         <TextView
             android:id="@+id/tv_guid_register"
@@ -52,7 +52,7 @@
             android:padding="8dip"
             android:text="@string/register"
             android:textAppearance="@style/TextAppearance.Smart.Button"
-            android:textColor="@drawable/selector_primarycolor_to_white_text" />
+            android:textColor="@color/selector_primarycolor_to_white_text" />
     </LinearLayout>
 </RelativeLayout>
 

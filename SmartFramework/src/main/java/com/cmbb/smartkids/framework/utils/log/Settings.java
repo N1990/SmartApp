@@ -18,7 +18,7 @@ public class Settings {
 
     private Context mContext;
     /** DEBUG模式. */
-    private boolean mIsDebug;
+    private boolean mIsDebug = true;
     /** 字符集. */
     private String mCharset;
     /** 时间格式. */

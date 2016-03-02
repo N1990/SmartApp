@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -31,15 +30,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     private BroadcastReceiver existReceiver;// EXIT
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//关闭横屏
         setContentView(getLayoutId());
         initActionBar();
         mPushAgent = PushAgent.getInstance(this);
         mPushAgent.onAppStart();
         initExit();
-        initRecyclerView();
         init(savedInstanceState);
     }
 

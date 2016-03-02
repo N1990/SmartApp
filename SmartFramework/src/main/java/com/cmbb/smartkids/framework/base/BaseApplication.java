@@ -20,6 +20,9 @@ import com.cmbb.smartkids.framework.api.okhttp.OkHttpClientManager;
 import com.cmbb.smartkids.framework.utils.SPCache;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.cmbb.smartkids.framework.utils.log.constant.ZoneOffset;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.backends.okhttp.OkHttpImagePipelineConfigFactory;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.iflytek.cloud.SpeechUtility;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
@@ -40,16 +43,18 @@ public class BaseApplication extends MultiDexApplication {
     public static PushAgent mPushAgent;
     public static String PUSH_ALIAS_ITENTACTION = "com.cmbb.smartkids.alias";
     public static MediaService mediaService;
+    public static Context context;
     public static String token = "";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        initLog();
+        context = getApplicationContext();
         //讯飞科大
         SpeechUtility.createUtility(this, "appid=56600859");
         initAlibabaSDK();
         initOkhttp();
-        initLog();
         initSharePreference();
         initPushAgent();
         initUmengAnalytics();
@@ -61,6 +66,12 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initOkhttp() {
         OkHttpClientManager.init(this);
+        //fresco
+        ImagePipelineConfig config = OkHttpImagePipelineConfigFactory.newBuilder(BaseApplication.getContext(), OkHttpClientManager.mOkHttpClient)
+                .setDownsampleEnabled(true)
+                .setResizeAndRotateEnabledForNetwork(true)
+                .build();
+        Fresco.initialize(BaseApplication.getContext(), config);
     }
 
     private void initLog() {
@@ -187,6 +198,10 @@ public class BaseApplication extends MultiDexApplication {
         bitmapDrawable = (BitmapDrawable) getApplicationContext().getApplicationInfo().loadIcon(getPackageManager());
         appIcon = bitmapDrawable.getBitmap();
         return appIcon;
+    }
+
+    public static Context getContext() {
+        return context;
     }
 
 }

@@ -113,6 +113,7 @@ public class OkHttpClientManager {
      */
     public static void init(Context context) {
         okHttpContext = context;
+        getInstance();
     }
 
     public GetDelegate getGetDelegate() {

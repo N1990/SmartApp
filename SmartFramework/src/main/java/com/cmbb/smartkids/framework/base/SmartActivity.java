@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.cmbb.smartkids.framework.R;
 import com.cmbb.smartkids.recyclerview.SmartRecyclerView;
 import com.cmbb.smartkids.recyclerview.adapter.RecyclerArrayAdapter;
-import com.umeng.analytics.MobclickAgent;
 
 
 public abstract class SmartActivity extends BaseActivity implements RecyclerArrayAdapter.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
@@ -52,7 +51,7 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
      *
      * @param flag boolean
      */
-    protected void closeSwipeRefresh(boolean flag) {
+    protected void openSwipeRefresh(boolean flag) {
         this.openSwipeRefresh = flag;
     }
 
@@ -60,17 +59,6 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
     protected abstract boolean initAdapter();
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
 
 
 }

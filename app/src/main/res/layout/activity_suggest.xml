@@ -8,11 +8,6 @@
 
     <include layout="@layout/toolbar" />
 
-    <include
-        android:id="@+id/suggest_progress"
-        layout="@layout/custome_progressbar"
-        />
-
     <RelativeLayout
         android:id="@+id/suggest_content"
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.cmbb.smartkids.more;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,8 +27,8 @@ public class SuggestActivity extends BaseActivity implements TextWatcher{
 
     private EditText etCotent;
     private TextView tvLimit;
-    private View customProgressBar;
     private RelativeLayout rlContent;
+    private ProgressDialog progressDialog;
     private int realLen = 0;
 
     @Override
@@ -44,10 +45,10 @@ public class SuggestActivity extends BaseActivity implements TextWatcher{
         ((TextView)findViewById(R.id.tv_title)).setText(R.string.title_activity_suggest);
         etCotent = (EditText) findViewById(R.id.et_cotent_suggest);
         tvLimit = (TextView) findViewById(R.id.tv_limit_suggest);
-        customProgressBar = findViewById(R.id.suggest_progress);
         rlContent = (RelativeLayout) findViewById(R.id.suggest_content);
         etCotent.addTextChangedListener(this);
-        customProgressBar.setVisibility(View.GONE);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("正在处理中...");
     }
 
     @Override
@@ -102,21 +103,21 @@ public class SuggestActivity extends BaseActivity implements TextWatcher{
 
 
     private void handleSuggestRequest(String contents){
-        customProgressBar.setVisibility(View.VISIBLE);
+        progressDialog.show();
         rlContent.setEnabled(false);
         HashMap<String, String> params = new HashMap<>();
         params.put("contents", contents);
         SecurityCodeModel.sendSuggestFeekRequest(contents, new OkHttpClientManager.ResultCallback<SecurityCodeModel>() {
             @Override
             public void onError(Request request, Exception e) {
-                customProgressBar.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 rlContent.setEnabled(true);
                 showShortToast(getString(R.string.requestailure));
             }
 
             @Override
             public void onResponse(SecurityCodeModel response) {
-                customProgressBar.setVisibility(View.GONE);
+                progressDialog.dismiss();
                 rlContent.setEnabled(true);
                 showShortToast(response.getMsg());
                 finish();

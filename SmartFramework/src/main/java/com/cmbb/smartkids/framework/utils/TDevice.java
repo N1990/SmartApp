@@ -32,6 +32,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -431,5 +434,22 @@ public class TDevice {
     }
 
 
+
+    /**
+     * 日期精确
+     *
+     * @param data
+     * @param format
+     * @return
+     * @throws ParseException
+     */
+    public static String DataToString(String data, String format) throws ParseException {
+        String result = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf2 = new SimpleDateFormat(format);
+        Date date = sdf.parse(data);
+        result = sdf2.format(date);
+        return result;
+    }
 
 }

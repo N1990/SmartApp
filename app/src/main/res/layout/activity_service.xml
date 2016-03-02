@@ -12,6 +12,79 @@
 
         <include layout="@layout/toolbar" />
 
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:background="@drawable/shape_white_background_no_corner">
+
+            <LinearLayout
+                android:id="@+id/btn_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/tv_line"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/global_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="城市" />
+
+                <!--<ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow" />-->
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_line"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/btn_city"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/darkgray" />
+
+            <LinearLayout
+                android:id="@+id/btn_smart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_line"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/global_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="智能" />
+
+                <!--<ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow" />-->
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <com.cmbb.smartkids.recyclerview.SmartRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_top"
+            android:layout_marginBottom="60dp"
+            app:layout_empty="@layout/view_empty"
+            app:layout_progress="@layout/view_progress"
+            app:scrollbarStyle="insideOverlay" />
+
 
         <LinearLayout
             android:id="@+id/ll_bottom"
@@ -19,10 +92,10 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:paddingTop="@dimen/half_global_padding"
-
             android:background="@drawable/shape_white_background_no_corner"
-            android:orientation="horizontal">
+
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/half_global_padding">
 
             <TextView
                 android:id="@+id/tv_home"

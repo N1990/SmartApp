@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_home_service_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dip"
+    android:background="@drawable/shape_white_background_no_corner"
+    android:elevation="3dip"
+    android:padding="@dimen/half_global_padding">
+
+    <RelativeLayout
+        android:id="@+id/rl_home_service_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_home_service_item"
+            android:layout_width="120dp"
+            android:layout_height="72dp"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@color/placeholder" />
+
+        <ImageView
+            android:id="@+id/iv_home_service_tag_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_title_home_service_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@+id/rl_home_service_item"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_title_home_service_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/half_global_padding"
+            android:layout_weight="1.0"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_home_service_tag_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/primaryColorDark"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.Smart.Small"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_city_home_service_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title_home_service_item"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/rl_home_service_item"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_city_home_service_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/dimgray" />
+
+        <TextView
+            android:id="@+id/tv_time_home_service_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/dimgray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_city_home_service_item"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/rl_home_service_item"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_preview_home_service_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:drawableLeft="@mipmap/btn_my_care_bg"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/dimgray" />
+
+
+        <TextView
+            android:id="@+id/tv_price_home_service_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/primaryColorDark"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</RelativeLayout>
+

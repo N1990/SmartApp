@@ -184,7 +184,10 @@ public class HomeActivity extends SmartActivity implements View.OnClickListener 
 
             @Override
             public void onResponse(HomeHotServerModel response) {
-                if (response != null) {
+                if (response != null ) {
+                    if (response.getData().getRows().size() > 0) {
+                        adapter.clear();
+                    }
                     adapter.addAll(response.getData().getRows());
                 }
             }

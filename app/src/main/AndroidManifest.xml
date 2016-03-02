@@ -217,25 +217,20 @@
             android:theme="@style/AppThemeFullScreen" />
         <activity
             android:name=".home.HomeActivity"
-            android:theme="@style/HomePageTheme">
-
-            <intent-filter>
-                <action android:name="com.cmbb.smartkids.home" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/HomePageTheme"
+            android:windowSoftInputMode="adjustNothing|stateHidden" />
         <activity
             android:name=".home.HomeServiceActivity"
-            android:theme="@style/HomePageTheme"/>
+            android:theme="@style/HomePageTheme" />
         <activity
             android:name=".home.HomeTopicActivity"
-            android:theme="@style/HomePageTheme"/>
+            android:theme="@style/HomePageTheme" />
         <activity
             android:name=".home.HomeMeActivity"
-            android:theme="@style/HomePageTheme"/>
+            android:theme="@style/HomePageTheme" />
         <activity
             android:name=".home.HomeMoreActivity"
-            android:theme="@style/HomePageTheme"/>
+            android:theme="@style/HomePageTheme" />
 
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.VerifyActivity" />

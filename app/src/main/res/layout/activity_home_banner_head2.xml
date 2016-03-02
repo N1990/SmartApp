@@ -178,12 +178,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/global_padding"
+        android:background="@drawable/shape_white_background_no_corner"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/darkgray" />
+            android:background="@color/line" />
 
         <TextView
             android:layout_width="match_parent"
@@ -196,7 +197,6 @@
             android:text="热门推荐"
             android:textAppearance="@style/TextAppearance.Smart.Small"
             android:textColor="@color/primaryColor"
-
             android:textStyle="bold" />
 
     </LinearLayout>

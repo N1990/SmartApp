@@ -60,6 +60,7 @@ public class HomeServiceActivity extends SmartActivity implements View.OnClickLi
     @Override
     protected void init(Bundle savedInstanceState) {
         ((TextView) findViewById(R.id.tv_title)).setText("服务列表");
+        toolbar.setDisplayHomeAsUpEnabled(false);
         initBottom();
         initView();
         onRefresh();

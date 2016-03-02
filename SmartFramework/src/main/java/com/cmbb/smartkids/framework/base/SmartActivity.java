@@ -39,9 +39,6 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
 
             if (openSwipeRefresh) {
                 mSmartRecyclerView.setRefreshListener(this);
-                onRefresh();
-            } else {
-                mSmartRecyclerView.setRefreshListener(null);
             }
         }
     }
@@ -57,8 +54,6 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
 
 
     protected abstract boolean initAdapter();
-
-
 
 
 }

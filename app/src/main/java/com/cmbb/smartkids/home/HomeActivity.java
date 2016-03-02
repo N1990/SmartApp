@@ -54,6 +54,7 @@ public class HomeActivity extends SmartActivity implements View.OnClickListener 
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        openSwipeRefresh = false;
         initBottom();
         initView();
     }
@@ -184,7 +185,7 @@ public class HomeActivity extends SmartActivity implements View.OnClickListener 
 
             @Override
             public void onResponse(HomeHotServerModel response) {
-                if (response != null ) {
+                if (response != null) {
                     if (response.getData().getRows().size() > 0) {
                         adapter.clear();
                     }

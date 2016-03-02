@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.cmbb.smartkids.R;
 import com.cmbb.smartkids.framework.base.BaseActivity;
-import com.cmbb.smartkids.framework.base.SmartActivity;
 import com.cmbb.smartkids.more.AboutActivity;
 import com.cmbb.smartkids.more.GrownValusActivity;
 import com.cmbb.smartkids.more.SuggestActivity;
@@ -31,7 +30,8 @@ public class HomeMoreActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        ((TextView)findViewById(R.id.tv_title)).setText(R.string.home_more);
+        ((TextView) findViewById(R.id.tv_title)).setText(R.string.home_more);
+        toolbar.setDisplayHomeAsUpEnabled(false);
         initBottom();
     }
 
@@ -63,6 +63,7 @@ public class HomeMoreActivity extends BaseActivity implements View.OnClickListen
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         context.startActivity(intent);
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

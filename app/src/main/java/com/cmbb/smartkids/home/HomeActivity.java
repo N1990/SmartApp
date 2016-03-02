@@ -100,6 +100,7 @@ public class HomeActivity extends SmartActivity implements View.OnClickListener 
 
     private void initBottom() {
         tvHome = (TextView) findViewById(R.id.tv_home);
+        tvHome.setSelected(true);
         tvService = (TextView) findViewById(R.id.tv_service);
         tvTopic = (TextView) findViewById(R.id.tv_topic);
         tvMe = (TextView) findViewById(R.id.tv_me);

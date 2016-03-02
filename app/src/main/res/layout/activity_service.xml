@@ -19,7 +19,9 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:background="@android:color/white"
+            android:paddingTop="@dimen/half_global_padding"
+
+            android:background="@drawable/shape_white_background_no_corner"
             android:orientation="horizontal">
 
             <TextView
@@ -30,7 +32,7 @@
                 android:drawableTop="@drawable/selector_home_page_button"
                 android:gravity="center"
                 android:text="@string/home_page"
-                android:textColor="@color/selector_primarycolor_to_gray_text" />
+                android:textColor="@color/selector_gray_to_primarycolor_text" />
 
             <TextView
                 android:id="@+id/tv_service"

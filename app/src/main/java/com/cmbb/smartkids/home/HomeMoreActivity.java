@@ -36,6 +36,7 @@ public class HomeMoreActivity extends SmartActivity implements View.OnClickListe
         tvTopic = (TextView) findViewById(R.id.tv_topic);
         tvMe = (TextView) findViewById(R.id.tv_me);
         tvMore = (TextView) findViewById(R.id.tv_more);
+        tvMore.setSelected(true);
         tvHome.setOnClickListener(this);
         tvService.setOnClickListener(this);
         tvTopic.setOnClickListener(this);

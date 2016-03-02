@@ -33,6 +33,7 @@ public class HomeTopicActivity extends SmartActivity implements View.OnClickList
         tvHome = (TextView) findViewById(R.id.tv_home);
         tvService = (TextView) findViewById(R.id.tv_service);
         tvTopic = (TextView) findViewById(R.id.tv_topic);
+        tvTopic.setSelected(true);
         tvMe = (TextView) findViewById(R.id.tv_me);
         tvMore = (TextView) findViewById(R.id.tv_more);
         tvHome.setOnClickListener(this);

@@ -27,6 +27,7 @@ public class Api {
     public static final String VERIFY_CODE = "smart/getSecurityCode"; //获取验证码，除注册外
     public static final String REGISTER_NEXT_REQUEST = "smart/registerNext"; //注册下一步
 
+    public static final String UPDATA_IMG_FOR_USER = "smart/personal/updateBackgroundImg"; //更换个人的图片
 
 
 }

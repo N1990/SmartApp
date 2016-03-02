@@ -34,6 +34,7 @@ public class HomeServiceActivity extends SmartActivity implements View.OnClickLi
     private void initBottom() {
         tvHome = (TextView) findViewById(R.id.tv_home);
         tvService = (TextView) findViewById(R.id.tv_service);
+        tvService.setSelected(true);
         tvTopic = (TextView) findViewById(R.id.tv_topic);
         tvMe = (TextView) findViewById(R.id.tv_me);
         tvMore = (TextView) findViewById(R.id.tv_more);

@@ -9,10 +9,6 @@ android {
         targetSdkVersion 23
         versionCode 303
         versionName "3.0.3"
-        multiDexEnabled true
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
-        }
     }
     buildTypes {
         release {
@@ -40,7 +36,6 @@ android {
             exclude 'META-INF/LGPL2.1'
             exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
             exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
-
         }
     }
 }

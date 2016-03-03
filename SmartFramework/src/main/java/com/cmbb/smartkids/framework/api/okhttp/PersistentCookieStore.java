@@ -184,6 +184,8 @@ public class PersistentCookieStore implements CookieStore {
             Log.d(LOG_TAG, "IOException in decodeCookie" + e);
         } catch (ClassNotFoundException e) {
             Log.d(LOG_TAG, "ClassNotFoundException in decodeCookie" + e);
+        } catch (Exception e) {
+
         }
 
         return cookie;

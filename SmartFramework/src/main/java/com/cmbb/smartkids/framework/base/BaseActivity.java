@@ -78,11 +78,11 @@ public abstract class BaseActivity extends AppCompatActivity implements OnClickL
     }
 
 
-    protected void showToast(String tip) {
+    public void showToast(String tip) {
         Toast.makeText(this, tip, Toast.LENGTH_LONG).show();
     }
 
-    protected void showShortToast(String tip) {
+    public void showShortToast(String tip) {
         Toast.makeText(this, tip, Toast.LENGTH_LONG).show();
     }
 
@@ -94,7 +94,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnClickL
     /**
      * 取消请求
      */
-    protected void cancelRequest() {
+    public void cancelRequest() {
         OkHttpClientManager.mOkHttpClient.cancel(Constants.BASE_URL);
         finish();
     }

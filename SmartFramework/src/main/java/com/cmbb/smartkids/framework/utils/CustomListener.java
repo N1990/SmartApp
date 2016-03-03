@@ -1,7 +1,10 @@
 package com.cmbb.smartkids.framework.utils;
 
 import android.os.Parcelable;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.javon.library.PullToRefreshBase;
 
 /**
  * 项目名称：LovelyBaby
@@ -35,6 +38,18 @@ public class CustomListener {
          */
         void onErrorListener(String message);
 
+    }
+
+
+    /**
+     *
+     */
+    public interface FragmentInterface {
+        public void onDownPager(PullToRefreshBase<RecyclerView> refreshView);
+
+        public void onUpPager(PullToRefreshBase<RecyclerView> refreshView);
+
+        public void showKeyboard();
     }
 
 }

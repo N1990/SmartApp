@@ -77,4 +77,5 @@ dependencies {
     compile project(':OneSDK')
     compile project(':SmartRecyclerView')
     compile project(':SmartPhotoPicker')
+    compile project(':PRTRecyclerView')
 }

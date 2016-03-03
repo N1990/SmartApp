@@ -12,7 +12,6 @@ import com.cmbb.smartkids.framework.utils.Fresco;
 import com.cmbb.smartkids.framework.utils.TDevice;
 import com.cmbb.smartkids.framework.utils.date.JTimeTransform;
 import com.cmbb.smartkids.framework.utils.date.RecentDateFormat;
-import com.cmbb.smartkids.home.adapter.TopicAdapter;
 import com.cmbb.smartkids.recyclerview.adapter.BaseViewHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -22,18 +21,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
  * 创建人：javon
  * 创建时间：2015/11/3 11:59
  */
-public class TopicItemHolder extends BaseViewHolder<TopicListModel.DataEntity.RowsEntity> implements View.OnClickListener {
+public class TopicItemHolder extends BaseViewHolder<TopicListModel.DataEntity.RowsEntity> {
     private SimpleDraweeView ivHeader, iv1, iv2, iv3;
     private ImageView ivTag1, ivTag2;
     private TextView tvName, tvIdentity, tvTag, tvTitle, tvContent, tvTime, tvPerssion, tvPre;
 
-    private TopicAdapter adapter;
-    private View root;
-    private int position;
-
     public TopicItemHolder(ViewGroup parent) {
         super(parent, R.layout.activity_topic_list_item);
-        this.root = itemView;
         ivHeader = $(R.id.iv_community_user_header_item);
         iv1 = $(R.id.iv_community_content_first_item);
         iv2 = $(R.id.iv_community_content_second_item);
@@ -51,9 +45,7 @@ public class TopicItemHolder extends BaseViewHolder<TopicListModel.DataEntity.Ro
     }
 
     public void setData(TopicListModel.DataEntity.RowsEntity data) {
-        this.root.setOnClickListener(this);
         if (data == null) return;
-        this.root.setTag(data);
         if (!TextUtils.isEmpty(data.getUserBasicInfo().getUserSmallImg())) {
             Fresco.loadImage(ivHeader, data.getUserBasicInfo().getUserSmallImg(), data.getUserBasicInfo().getUserSmallWidth() + "", data.getUserBasicInfo().getUserSmallHeight() + "");
         } else {
@@ -115,11 +107,5 @@ public class TopicItemHolder extends BaseViewHolder<TopicListModel.DataEntity.Ro
         }
         tvPerssion.setText(data.getBrowseNumber() + "");
         tvPre.setText(data.getReplys() + "");
-    }
-
-    @Override
-    public void onClick(View v) {
-        /*if (adapter.getOnItemListener() != null)
-            adapter.getOnItemListener().onItemClick(v, position, v.getTag());*/
     }
 }

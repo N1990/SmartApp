@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cmbb.smartkids.framework.R;
+import com.cmbb.smartkids.framework.utils.CustomListener;
 
 
 /**
@@ -51,8 +52,8 @@ public class CustomDialogBuilder extends Dialog implements View.OnClickListener 
     private boolean isCancelable = true;
     private int windowWidth = 0;
     private int windowHeight = 0;
-    private WheelCustomListener.DialogListener onAbolishListener;
-    private WheelCustomListener.DialogListener onComfirmListener;
+    private CustomListener.DialogListener onAbolishListener;
+    private CustomListener.DialogListener onComfirmListener;
     private volatile static CustomDialogBuilder instance;
     private Context context;
 
@@ -218,7 +219,7 @@ public class CustomDialogBuilder extends Dialog implements View.OnClickListener 
     }*/
 
 
-    public CustomDialogBuilder withBottomResid(int resid, WheelCustomListener.DialogListener onCancelListener) {
+    public CustomDialogBuilder withBottomResid(int resid, CustomListener.DialogListener onCancelListener) {
         llNavigate.setVisibility(View.VISIBLE);
         tvCancel.setVisibility(View.VISIBLE);
         tvCancel.setVisibility(View.VISIBLE);
@@ -229,7 +230,7 @@ public class CustomDialogBuilder extends Dialog implements View.OnClickListener 
     }
 
 
-    public CustomDialogBuilder withCancelText(CharSequence text, WheelCustomListener.DialogListener onCancelListener) {
+    public CustomDialogBuilder withCancelText(CharSequence text, CustomListener.DialogListener onCancelListener) {
         llNavigate.setVisibility(View.VISIBLE);
         tvCancel.setVisibility(View.VISIBLE);
         ifNeedDivider();
@@ -240,7 +241,7 @@ public class CustomDialogBuilder extends Dialog implements View.OnClickListener 
     }
 
 
-    public CustomDialogBuilder withComfirmText(CharSequence text, WheelCustomListener.DialogListener onComfirmListener) {
+    public CustomDialogBuilder withComfirmText(CharSequence text, CustomListener.DialogListener onComfirmListener) {
         llNavigate.setVisibility(View.VISIBLE);
         tvComfirm.setVisibility(View.VISIBLE);
         ifNeedDivider();

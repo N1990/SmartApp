@@ -6,6 +6,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
@@ -21,6 +23,8 @@ import com.cmbb.smartkids.framework.utils.CustomListener;
 import com.cmbb.smartkids.home.adapter.TopicAdapter;
 import com.cmbb.smartkids.home.adapter.TopicTypeAdapter;
 import com.cmbb.smartkids.recyclerview.SmartRecyclerView;
+import com.cmbb.smartkids.topic.PostTopicActivity;
+import com.cmbb.smartkids.topic.TopicDetailActivity;
 import com.squareup.okhttp.Request;
 
 /**
@@ -31,6 +35,7 @@ import com.squareup.okhttp.Request;
  */
 public class HomeTopicActivity extends SmartActivity implements View.OnClickListener {
 
+    private static final String TAG = HomeTopicActivity.class.getSimpleName();
     //Bottom
     private TextView tvHome;
     private TextView tvService;
@@ -61,6 +66,13 @@ public class HomeTopicActivity extends SmartActivity implements View.OnClickList
         onRefresh();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_home_topic, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void initBottom() {
         tvHome = (TextView) findViewById(R.id.tv_home);
         tvService = (TextView) findViewById(R.id.tv_service);
@@ -73,6 +85,23 @@ public class HomeTopicActivity extends SmartActivity implements View.OnClickList
         tvTopic.setOnClickListener(this);
         tvMe.setOnClickListener(this);
         tvMore.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_post:
+                // 发帖
+                PostTopicActivity.newIntent(this);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        TopicDetailActivity.newInstance(this, ((TopicAdapter) adapter).getItem(position).getId());
     }
 
     SmartRecyclerView popuRecyclerView;
@@ -195,4 +224,6 @@ public class HomeTopicActivity extends SmartActivity implements View.OnClickList
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         context.startActivity(intent);
     }
+
+
 }

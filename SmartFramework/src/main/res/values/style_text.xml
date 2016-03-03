@@ -3,11 +3,11 @@
 
     <!-- 内容区文字大小-->
     <style name="TextAppearance.Smart.Body1" parent="Base.TextAppearance.AppCompat.Body1">
-        <item name="android:textColor">@color/darkgray</item>
+        <item name="android:textColor">@color/dimgray</item>
     </style>
 
     <style name="TextAppearance.Smart.Body2" parent="Base.TextAppearance.AppCompat.Body2">
-        <item name="android:textColor">@color/darkgray</item>
+        <item name="android:textColor">@color/dimgray</item>
     </style>
     <!-- 内容区文字大小-->
 

@@ -30,6 +30,35 @@ public class Api {
     public static final String UPDATA_IMG_FOR_USER = "smart/personal/updateBackgroundImg"; //更换个人的图片
     public static final String HOME_MAIN_HOT_SERVICE = "smart/services/getPage";  //服务列表
 
+    public static final String TOPIC_DETAIL = "smart/topic/detial"; // 话题详情
+    public static final String TOPIC_REPLAY = "smart/topic/replyList"; //回复列表
+
+    public static final String TOPIC_COLLECT = "smart/topic/collect"; // 话题收藏
+    public static final String TOPIC_DELETE = "smart/topic/delete"; // 删除话题
+    public static final String TOPIC_REPORT = "smart/topic/reportTopic"; // 举报话题
+
+    public static final String TOPIC_SPOT = "smart/topic/spot"; // 点赞
+    public static final String TOPIC_REPLYTOPIC = "smart/topic/replyTopic"; // 回复话题
+    public static final String REPLAY_DETAIL = "smart/topic/getReplyDetial"; // 回复详情
+    public static final String TOPIC_DELETEREPLY = "smart/topic/deleteReply"; //删除回复
+    public static final String TOPIC_REPORTREPLY = "smart/topic/reportReply"; // 举报回复
+
+    public static final String TOPIC_PUBLISH = "smart/topic/publish"; // 话题发布
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static final String FEEDBACK_SUGGEST_REQUEST = "smart/feedback/opinion";//意见反馈
     public static final String MODIFY_USER_INFO = "smart/personal/updatePersonal"; // 修改用户信息
     public static final String CHANGE_USER_ACCOUNT = "smart/logout"; // 切换账号

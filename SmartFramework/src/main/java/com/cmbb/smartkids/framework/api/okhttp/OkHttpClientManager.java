@@ -1,6 +1,8 @@
 package com.cmbb.smartkids.framework.api.okhttp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -10,9 +12,15 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.cmbb.smartkids.framework.base.Constants;
+import com.cmbb.smartkids.framework.api.ImageModel;
 import com.cmbb.smartkids.framework.api.RequestModel;
+import com.cmbb.smartkids.framework.base.BaseApplication;
+import com.cmbb.smartkids.framework.base.Constants;
+import com.cmbb.smartkids.framework.db.DBHelper;
+import com.cmbb.smartkids.framework.utils.SPCache;
+import com.cmbb.smartkids.framework.utils.TDevice;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;
@@ -53,6 +61,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.net.ssl.KeyManager;
@@ -105,6 +114,7 @@ public class OkHttpClientManager {
         }
         return mInstance;
     }
+
 
     /**
      * OkHttp初始化
@@ -179,6 +189,20 @@ public class OkHttpClientManager {
 
     public static void postAsyn(String url, Map<String, String> params, File file, final ResultCallback callback) {
         getInstance().getPostDelegate().postAsyn(url, params, file, callback, null);
+    }
+
+    /**
+     * 发布话题
+     *
+     * @param url
+     * @param params
+     * @param filekey
+     * @param textKey
+     * @param imageModels
+     * @param callback
+     */
+    public static void postAsyn(String url, Map<String, String> params, String filekey, String textKey, List<ImageModel> imageModels, final ResultCallback callback) {
+        getInstance().getPostDelegate().postAsyn(url, params, filekey, textKey, imageModels, callback, null);
     }
 
     public static void postAsyn(String url, String bodyStr, final ResultCallback callback) {
@@ -381,6 +405,40 @@ public class OkHttpClientManager {
         return reqBuilder.build();
     }
 
+    private Request buildPostFormRequest(String url, Map<String, String> params, String filekey, String textKey, List<ImageModel> imageModels, Object tag) {
+        Log.e("Request", "Request Url = " + url);
+        if (params == null) {
+            params = new HashMap<>();
+        }
+        MultipartBuilder builder = new MultipartBuilder();
+        builder.type(MultipartBuilder.MIXED);
+
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            builder.addFormDataPart(entry.getKey(), entry.getValue());
+            Log.e("Request", entry.getKey() + " : " + entry.getValue());
+        }
+        if (imageModels != null && imageModels.size() > 0) {
+            for (int i = 0; i < imageModels.size(); i++) {
+                builder.addFormDataPart(filekey, filekey, RequestBody.create(MEDIA_TYPE_PNG, new File(imageModels.get(i).getImgUrl())));
+                Log.e("param", filekey + " = " + imageModels.get(i).getImgUrl());
+                if (!TextUtils.isEmpty(imageModels.get(i).getContent())) {
+                    String values = imageModels.get(i).getContent();
+                    builder.addFormDataPart(textKey + i, values);
+                    Log.e("param", textKey + i + " = " + values);
+                }
+            }
+        }
+        RequestBody requestBody = builder.build();
+        Request.Builder reqBuilder = new Request.Builder();
+        reqBuilder.url(url)
+                .post(requestBody);
+
+        if (tag != null) {
+            reqBuilder.tag(tag);
+        }
+        return reqBuilder.build();
+    }
+
     public static void cancelTag(Object tag) {
         getInstance()._cancelTag(tag);
     }
@@ -486,6 +544,11 @@ public class OkHttpClientManager {
          */
         public void postAsyn(String url, Map<String, String> params, File file, final ResultCallback callback, Object tag) {
             Request request = buildPostFormRequest(url, params, file, tag);
+            deliveryResult(callback, request);
+        }
+
+        public void postAsyn(String url, Map<String, String> params, String filekey, String textKey, List<ImageModel> imageModels, final ResultCallback callback, Object tag) {
+            Request request = buildPostFormRequest(url, params, filekey, textKey, imageModels, tag);
             deliveryResult(callback, request);
         }
 
@@ -1274,13 +1337,13 @@ public class OkHttpClientManager {
      * 改变账号，需要异步执行
      */
     private static void changeAccount() {
-        /*try {
-            boolean flag = MuseApplication.mPushAgent.removeAlias(SPCache.getString(Constants.USER_ID, "") + "_" + TDevice.getDeviceId(MuseApplication.getContext()), "service");
+        try {
+            boolean flag = BaseApplication.mPushAgent.removeAlias(SPCache.getString(Constants.USER_ID, "") + "_" + TDevice.getDeviceId(BaseApplication.getContext()), "service");
             Log.e("Alias", "Alias remove = " + flag);
             Log.e("Alias", "Alias remove id = " + SPCache.getString(Constants.USER_ID, ""));
             if (flag) {
                 SPCache.clear();
-                DBHelper dbHelper = new DBHelper(MuseApplication.getContext());
+                DBHelper dbHelper = new DBHelper(BaseApplication.getContext());
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 dbHelper.delete(db);
             } else {
@@ -1288,15 +1351,17 @@ public class OkHttpClientManager {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
 
     private void loginAgain(String errInfo) {
-       /* Toast.makeText(MuseApplication.getContext(), errInfo, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(MuseApplication.getContext(), LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        MuseApplication.getContext().startActivity(intent);*/
+        Toast.makeText(BaseApplication.getContext(), errInfo, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent("com.cmbb.smartkids.loginagain");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        BaseApplication.getContext().startActivity(intent);
     }
+
+
 }
 

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OneSDK/OneSDK.iml" filepath="$PROJECT_DIR$/OneSDK/OneSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PRTRecyclerView/PRTRecyclerView.iml" filepath="$PROJECT_DIR$/PRTRecyclerView/PRTRecyclerView.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmartApp.iml" filepath="$PROJECT_DIR$/SmartApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmartFramework/SmartFramework.iml" filepath="$PROJECT_DIR$/SmartFramework/SmartFramework.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmartPhotoPicker/SmartPhotoPicker.iml" filepath="$PROJECT_DIR$/SmartPhotoPicker/SmartPhotoPicker.iml" />

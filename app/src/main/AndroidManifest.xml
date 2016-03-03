@@ -240,7 +240,12 @@
             android:name=".home.HomeMoreActivity"
             android:theme="@style/HomePageTheme" />
 
-        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.LoginActivity">
+            <intent-filter>
+                <action android:name="com.cmbb.smartkids.loginagain" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".login.VerifyActivity" />
         <activity android:name=".login.ForgetPwdActivity" />
         <activity android:name=".login.RegisterActivity" />
@@ -251,8 +256,18 @@
         <activity android:name=".more.GrownValusActivity" />
         <activity android:name=".user.MySetActivity" />
 
+        <activity android:name=".topic.TopicDetailActivity" />
+        <activity android:name=".topic.TopicReplayInnerActivity" />
+        <activity android:name=".topic.PostTopicActivity" />
+
         <provider
             android:name=".framework.db.UserProvider"
+            android:authorities="com.cmbb.smartkids.useraccount"
+            android:enabled="true"
+            android:exported="false" />
+
+        <provider
+            android:name=".framework.db.TopicProvider"
             android:authorities="com.cmbb.smartkids.useraccount"
             android:enabled="true"
             android:exported="false" />

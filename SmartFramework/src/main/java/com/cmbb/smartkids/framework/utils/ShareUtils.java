@@ -197,7 +197,7 @@ public class ShareUtils {
 
 
     public static void showShareView() {
-        final BottomSheetDialog dialog = new BottomSheetDialog(activity);
+        final BottomSheetDialog dialog = new BottomSheetDialog(activity, R.style.BottomSheetDialog);
         View view = LayoutInflater.from(activity).inflate(R.layout.share_bottom_sheet_recycler, null);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.bs_rv);
         recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));

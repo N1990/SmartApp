@@ -1,1 +1,1 @@
-include ':app', ':SmartFramework', ':OneSDK', ':SmartRecyclerView', ':SmartPhotoPicker'
+include ':app', ':SmartFramework', ':OneSDK', ':SmartRecyclerView', ':SmartPhotoPicker', ':PRTRecyclerView'

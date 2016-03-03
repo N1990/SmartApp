@@ -8,7 +8,7 @@ import com.cmbb.smartkids.recyclerview.SmartRecyclerView;
 import com.cmbb.smartkids.recyclerview.adapter.RecyclerArrayAdapter;
 
 
-public abstract class SmartActivity extends BaseActivity implements RecyclerArrayAdapter.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
+public abstract class SmartActivity extends BaseActivity implements RecyclerArrayAdapter.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
     private final String TAG = SmartActivity.class.getSimpleName();
     protected SmartRecyclerView mSmartRecyclerView;
     protected RecyclerArrayAdapter adapter;
@@ -22,7 +22,7 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
             mSmartRecyclerView.setAdapterWithProgress(adapter);
             adapter.setMore(R.layout.view_more, this);
             adapter.setNoMore(R.layout.view_nomore);
-
+            adapter.setOnItemClickListener(this);
             /*adapter.setOnItemLongClickListener(new RecyclerArrayAdapter.OnItemLongClickListener() {
                 @Override
                 public boolean onItemClick(int position) {
@@ -54,6 +54,11 @@ public abstract class SmartActivity extends BaseActivity implements RecyclerArra
 
 
     protected abstract boolean initAdapter();
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
 
 
 }

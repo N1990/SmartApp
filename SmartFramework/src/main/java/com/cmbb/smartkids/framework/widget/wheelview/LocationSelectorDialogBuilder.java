@@ -9,11 +9,12 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
 import com.cmbb.smartkids.framework.R;
+import com.cmbb.smartkids.framework.utils.CustomListener;
 import com.cmbb.smartkids.framework.utils.TDevice;
 
 
 public class LocationSelectorDialogBuilder extends CustomDialogBuilder implements
-		WheelCustomListener.DialogListener {
+		CustomListener.DialogListener {
 
 	private Context context;
 	private RelativeLayout rlCustomLayout;

@@ -25,12 +25,11 @@ import com.cmbb.smartkids.framework.base.BaseApplication;
 import com.cmbb.smartkids.framework.base.Constants;
 import com.cmbb.smartkids.framework.utils.log.Log;
 
-import java.io.ByteArrayOutputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -366,6 +365,18 @@ public class TDevice {
         Pattern pattern = Pattern.compile(match);
         Matcher matcher = pattern.matcher(phone);
         return matcher.matches();
+    }
+
+    /**
+     * @param time
+     * @param format
+     * @return
+     */
+    public static String DateToString(long time, String format) {
+        String result = "";
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        result = sdf.format(time);
+        return result;
     }
 
     /**

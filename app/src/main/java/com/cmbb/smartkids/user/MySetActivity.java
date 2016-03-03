@@ -41,13 +41,13 @@ import com.cmbb.smartkids.framework.base.Constants;
 import com.cmbb.smartkids.framework.db.DBAddressModel;
 import com.cmbb.smartkids.framework.db.DBContent;
 import com.cmbb.smartkids.framework.db.DBHelper;
+import com.cmbb.smartkids.framework.utils.CustomListener;
 import com.cmbb.smartkids.framework.utils.Fresco;
 import com.cmbb.smartkids.framework.utils.SPCache;
 import com.cmbb.smartkids.framework.utils.TDevice;
 import com.cmbb.smartkids.framework.utils.log.Log;
 import com.cmbb.smartkids.framework.widget.wheelview.CustomDialogBuilder;
 import com.cmbb.smartkids.framework.widget.wheelview.LocationSelectorDialogBuilder;
-import com.cmbb.smartkids.framework.widget.wheelview.WheelCustomListener;
 import com.cmbb.smartkids.login.TimeCounter;
 import com.cmbb.smartkids.photopicker.PhotoPickerActivity;
 import com.cmbb.smartkids.photopicker.utils.PhotoPickerIntent;
@@ -59,7 +59,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MySetActivity extends BaseActivity implements LocationSelectorDialogBuilder.OnSaveLocationLister, LoaderManager.LoaderCallbacks<Cursor> {
@@ -137,12 +136,12 @@ public class MySetActivity extends BaseActivity implements LocationSelectorDialo
             builder.withTitle("更改性别")
                     .withMessageMiss(View.GONE)
                     .withCustomContentView(view, this)
-                    .withCancelText("取消", new WheelCustomListener.DialogListener() {
+                    .withCancelText("取消", new CustomListener.DialogListener() {
                         @Override
                         public void onClick(View v) {
                             builder.dismiss();
                         }
-                    }).withComfirmText("确定", new WheelCustomListener.DialogListener() {
+                    }).withComfirmText("确定", new CustomListener.DialogListener() {
                 @Override
                 public void onClick(View v) {
                     if (male != 0) {
@@ -156,12 +155,12 @@ public class MySetActivity extends BaseActivity implements LocationSelectorDialo
             builder.withTitle("更改昵称")
                     .withMessageMiss(View.GONE)
                     .withCustomContentView(view, this)
-                    .withCancelText("取消", new WheelCustomListener.DialogListener() {
+                    .withCancelText("取消", new CustomListener.DialogListener() {
                         @Override
                         public void onClick(View v) {
                             builder.dismiss();
                         }
-                    }).withComfirmText("确定", new WheelCustomListener.DialogListener() {
+                    }).withComfirmText("确定", new CustomListener.DialogListener() {
                 @Override
                 public void onClick(View v) {
                     if (etChange != null && !TextUtils.isEmpty(etChange.getText().toString())) {
@@ -176,12 +175,12 @@ public class MySetActivity extends BaseActivity implements LocationSelectorDialo
             builder.withTitle("更改手机号")
                     .withMessageMiss(View.GONE)
                     .withCustomContentView(view, this)
-                    .withCancelText("取消", new WheelCustomListener.DialogListener() {
+                    .withCancelText("取消", new CustomListener.DialogListener() {
                         @Override
                         public void onClick(View v) {
                             builder.dismiss();
                         }
-                    }).withComfirmText("确定", new WheelCustomListener.DialogListener() {
+                    }).withComfirmText("确定", new CustomListener.DialogListener() {
                 @Override
                 public void onClick(View v) {
                     String phone = etPhone.getText().toString();
@@ -201,12 +200,12 @@ public class MySetActivity extends BaseActivity implements LocationSelectorDialo
             builder.withTitle("修改详细地址")
                     .withMessageMiss(View.GONE)
                     .withCustomContentView(view, this)
-                    .withCancelText("取消", new WheelCustomListener.DialogListener() {
+                    .withCancelText("取消", new CustomListener.DialogListener() {
                         @Override
                         public void onClick(View v) {
                             builder.dismiss();
                         }
-                    }).withComfirmText("确定", new WheelCustomListener.DialogListener() {
+                    }).withComfirmText("确定", new CustomListener.DialogListener() {
                 @Override
                 public void onClick(View v) {
                     if (etChange != null) {
@@ -222,12 +221,12 @@ public class MySetActivity extends BaseActivity implements LocationSelectorDialo
         } else {
             builder.withTitle("绑定账号")
                     .withMessage(tip)
-                    .withCancelText("取消", new WheelCustomListener.DialogListener() {
+                    .withCancelText("取消", new CustomListener.DialogListener() {
                         @Override
                         public void onClick(View v) {
                             builder.dismiss();
                         }
-                    }).withComfirmText("确定", new WheelCustomListener.DialogListener() {
+                    }).withComfirmText("确定", new CustomListener.DialogListener() {
                 @Override
                 public void onClick(View v) {
 

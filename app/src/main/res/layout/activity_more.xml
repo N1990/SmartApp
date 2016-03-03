@@ -36,7 +36,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textAppearance="@style/TextAppearance.Smart.Title"
+            android:textAppearance="@style/TextAppearance.Smart.Body1"
             android:background="@android:color/white"
             android:drawableRight="@mipmap/btn_right_anchor_bg"
             android:layout_marginTop="20dp"

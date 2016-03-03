@@ -20,4 +20,18 @@
         <attr name="rollviewpager_hint_color" format="color" />
         <attr name="rollviewpager_hint_alpha" format="integer" />
     </declare-styleable>
+
+    <!-- Defines the custom XML attributes supported for a HorizontalListView -->
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
+    <declare-styleable name="NiceSpinner">
+        <attr name="arrowTint" format="color" />
+        <attr name="hideArrow" format="boolean" />
+        <attr name="hideLeftDrawable" format="boolean" />
+        <attr name="leftDrawable" format="reference" />
+    </declare-styleable>
 </resources>

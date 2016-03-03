@@ -10,11 +10,12 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.RelativeLayout;
 
 import com.cmbb.smartkids.framework.R;
+import com.cmbb.smartkids.framework.utils.CustomListener;
 import com.cmbb.smartkids.framework.utils.TDevice;
 
 
 public class DateTimeSelectorDialogBuilder extends CustomDialogBuilder implements
-		View.OnClickListener, WheelCustomListener.DialogListener {
+		View.OnClickListener, CustomListener.DialogListener {
 
 	private final String TAG = DateTimeSelectorDialogBuilder.class.getSimpleName();
 

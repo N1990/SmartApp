@@ -268,7 +268,7 @@
 
         <provider
             android:name=".framework.db.TopicProvider"
-            android:authorities="com.cmbb.smartkids.useraccount"
+            android:authorities="com.cmbb.smartkids.topiclist"
             android:enabled="true"
             android:exported="false" />
 

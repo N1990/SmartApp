@@ -10,6 +10,9 @@ android {
         targetSdkVersion 23
         versionCode 303
         versionName "3.0.3"
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {

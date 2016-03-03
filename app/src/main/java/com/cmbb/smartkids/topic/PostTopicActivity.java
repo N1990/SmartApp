@@ -325,7 +325,7 @@ public class PostTopicActivity extends BaseActivity {
         }
         showWaitDialog();
 
-        OkHttpClientManager.postAsyn(Constants.BASE_URL+"/"+Api.TOPIC_PUBLISH, params, "topicImgList", "imgText", files, new OkHttpClientManager.ResultCallback<ServiceListModel>() {
+        OkHttpClientManager.postAsyn(Constants.BASE + Api.TOPIC_PUBLISH, params, "topicImgList", "imgText", files, new OkHttpClientManager.ResultCallback<ServiceListModel>() {
             @Override
             public void onError(Request request, Exception e) {
                 hideWaitDialog();

@@ -276,16 +276,9 @@ public class OkHttpClientManager {
                                 int errorCode = errJson.optInt("errorCode");
                                 String errorInfo = errJson.optString("errorInfo");
                                 switch (errorCode) {
-                                    case 10:
-                                    case 11:
-                                        sendFailedStringCallback(response.request(), new Exception(errorInfo), resCallBack);
-                                        break;
                                     case 14:// login agin
                                     case 15:// login agin
                                         sendServerFailedCallback(errorInfo);
-                                        break;
-                                    case 20://订单不存在
-                                        sendFailedStringCallback(response.request(), new Exception(errorInfo), resCallBack);
                                         break;
                                     default:
                                         if (codeStatus == 403) {
@@ -436,6 +429,7 @@ public class OkHttpClientManager {
         if (tag != null) {
             reqBuilder.tag(tag);
         }
+
         return reqBuilder.build();
     }
 

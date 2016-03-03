@@ -8,9 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -84,7 +82,7 @@ public class TopicReplayInnerActivity extends SmartActivity {
         ((TextView) findViewById(R.id.tv_title)).setText("评论回复");
         initView();
         initRecyclerView();
-        adapter.addHeader(new RecyclerArrayAdapter.ItemView() {
+        /*adapter.addHeader(new RecyclerArrayAdapter.ItemView() {
             @Override
             public View onCreateView(ViewGroup parent) {
                 RelativeLayout header = (RelativeLayout) LayoutInflater.from(TopicReplayInnerActivity.this).inflate(R.layout.activity_replay_detail_head, null);
@@ -103,7 +101,7 @@ public class TopicReplayInnerActivity extends SmartActivity {
                 tvIdentify = (TextView) itemView.findViewById(R.id.tv_community_comment_tag_item);
                 tvContent = (TextView) itemView.findViewById(R.id.tv_community_comment_content_item);
             }
-        });
+        });*/
         adapter.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -115,6 +113,17 @@ public class TopicReplayInnerActivity extends SmartActivity {
     }
 
     private void initView() {
+
+        header = (SimpleDraweeView) findViewById(R.id.iv_community_comment_item);
+        ivContent = (SimpleDraweeView) findViewById(R.id.iv_community_comment_content_item);
+        ivComment = (ImageView) findViewById(R.id.iv_community_comment_perssion_item);
+        ivMore = (ImageView) findViewById(R.id.iv_community_comment_more_item);
+        tvName = (TextView) findViewById(R.id.tv_community_comment_nickname_item);
+        tvTime = (TextView) findViewById(R.id.tv_community_comment_time_item);
+        tvIdentify = (TextView) findViewById(R.id.tv_community_comment_tag_item);
+        tvContent = (TextView) findViewById(R.id.tv_community_comment_content_item);
+
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("正在提交...");
         etRever = (EditText) findViewById(R.id.et_comment_rever);
@@ -260,7 +269,7 @@ public class TopicReplayInnerActivity extends SmartActivity {
 //                    ivComment.setOnClickListener(onEveryListener);
                     ivMore.setTag(data);
                     ivMore.setOnClickListener(detailMore);
-                    adapter.notifyDataSetChanged();
+                    //adapter.notifyDataSetChanged();
                 }
             }
         });

@@ -51,7 +51,7 @@ import java.util.List;
  * ShareUtils.registerShakeToShare();
  * 授权回调
  * onactivityreslut
- * <p>
+ * <p/>
  * 按钮点击事件调share面板
  * ShareUtils.showShareView();
  */

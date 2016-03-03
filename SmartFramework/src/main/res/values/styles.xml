@@ -48,7 +48,7 @@
     </style>
 
     <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
-        <item name="behavior_peekHeight">360dp</item>
+        <item name="behavior_peekHeight">390dp</item>
     </style>
     <!--Share Bottom-->
 

@@ -31,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DBContent.DBUser.DELETE_TABLE);
         db.execSQL(DBContent.DBAddress.DELETE_TABLE);
+        db.execSQL(DBContent.DBTopic.DELETE_TABLE);
         onCreate(db);
     }
 
@@ -42,6 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void delete(SQLiteDatabase db) {
         db.execSQL(DBContent.DBUser.DELETE_TABLE);
         db.execSQL(DBContent.DBAddress.DELETE_TABLE);
+        db.execSQL(DBContent.DBTopic.DELETE_TABLE);
         onCreate(db);
     }
 
